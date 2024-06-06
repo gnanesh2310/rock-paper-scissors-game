@@ -87,3 +87,23 @@ function pickComputerMove() {
 
   return computerMove;
 }
+
+
+function startAutoplay() {
+    let my =pickComputerMove()
+    autoplayInterval = setInterval(()=>playGame(my), 1000); // Play a round every second
+  }
+  
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+  let AutoPlaying=false;
+  function autoplay(){
+    if (!AutoPlaying){
+      startAutoplay();
+      AutoPlaying=true;
+    }else {
+      stopAutoplay();
+      AutoPlaying=false;
+    }
+  }
